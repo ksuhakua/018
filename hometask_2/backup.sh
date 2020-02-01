@@ -8,4 +8,3 @@ read backup_dir
 mkdir -p $HOME/"$backup_dir"/"$date"
 find $HOME/$source_dir/ -mtime -1 -exec cp  {} $HOME/$backup_dir/$date/ \;
 
-#/Documents/PE
