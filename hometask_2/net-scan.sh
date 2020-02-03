@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo "Please enter scan range:"
-read range
-
-for port in $range; do
-  scan 80 443 #&&
-   # echo "port 80 is open" ||
-    #echo "port 443 is closed"
+for i in {0..255}; 
+  do nc -n -z -w 2 192.168.1.$i 80; nc -n -z -w 2 192.168.1.$i 443
 done
