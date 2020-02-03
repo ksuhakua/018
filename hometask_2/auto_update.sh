@@ -21,21 +21,21 @@ trap 'exec 2>&4 1>&3' 0 1 2 3
 exec 1>"/var/log/update-$date.log" 2>&1
 
 echo -e "step 1: update apt cache"
-sudo apt-get update 
+sudo apt-get -y update 
 
 echo
 
 echo -e MSG2="step 2: upgrade packages"
-sudo apt-get upgrade
+sudo apt-get -y upgrade
 
 echo
 
 echo -e MSG3="step 3: remove unused packages"
-sudo apt-get --purge autoremove
+sudo apt-get --purge -y autoremove
 
 echo
 
 echo -e MSG4="step 4: clean up"
-sudo apt-get autoclean
+sudo apt-get -y autoclean
 
 echo
