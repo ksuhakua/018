@@ -1,0 +1,21 @@
+
+Vagrant.configure("2") do |config|
+config.vm.provision "shell", path: "script.sh"
+config.vm.provision "file", source: "atlassian-confluence-7.3.1-x64.bin", destination: "atlassian-confluence-7.3.1-x64.bin"
+  
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/bionic64"
+    ubuntu.vm.network "forwarded_port", guest: 80, host: 8080
+    ubuntu.vm.network "forwarded_port", guest: 3306, host: 3306
+    ubuntu.vm.provider "virtualbox" do |vb|
+    
+    #Customize the amount of memory on the VM:
+      vb.memory = "2048"
+      vb.cpus = "2"
+    end
+    
+    
+  end
+
+ 
+end
