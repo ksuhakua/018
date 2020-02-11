@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu" do |ubuntu|
     ubuntu.vm.box = "ubuntu/bionic64"
     ubuntu.vm.network "forwarded_port", guest: 8090, host: 8080
-    ubuntu.vm.network "forwarded_port", guest: 3306, host: 3306
+    ubuntu.vm.network "forwarded_port", guest: 3306, host: 3306, protocol: "tcp"
     ubuntu.vm.provider "virtualbox" do |vb|
     
     #Customize the amount of memory on the VM:
